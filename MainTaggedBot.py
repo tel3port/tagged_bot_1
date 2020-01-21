@@ -261,10 +261,10 @@ class MainTaggedBot:
         time.sleep(12)
 
         # open tab
-        # current = wd.current_window_handle
-        # wd.execute_script("window.open();")
-        # new_tab = [tab for tab in wd.window_handles if tab != current][0]
-        # wd.switch_to.window(new_tab)
+        current = wd.current_window_handle
+        wd.execute_script("window.open();")
+        new_tab = [tab for tab in wd.window_handles if tab != current][0]
+        wd.switch_to.window(new_tab)
         # You can use (Keys.CONTROL + 't') on other OSs
         # load the page
         time.sleep(12)
@@ -313,9 +313,9 @@ class MainTaggedBot:
             results_start = len(thumbnail_results)
 
             # # close the tab
-            # wd.close()
-            #
-            # wd.switch_to.window(current)
+            wd.close()
+
+            wd.switch_to.window(current)
 
         return image_urls
 
@@ -435,7 +435,6 @@ if __name__ == "__main__":
                 tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
                 time.sleep(randint(35, 65))
 
-
         else:
             print("bot is sleeping for 8 hours")
 
@@ -456,11 +455,10 @@ if __name__ == "__main__":
     def custom_tagged_bot_1_scheduler():
         print("starting custom scheduler")
 
-        schedule.every().day.at("01:03").do(image_refresh_sequence)
         # schedule.every().wednesday.at("01:21").do(image_refresh_sequence)
         # schedule.every().friday.at("01:57").do(image_refresh_sequence)
         # schedule.every().sunday.at("01:57").do(user_scraper_sequence)
-
+        schedule.every().day.at("01:03").do(image_refresh_sequence)
         schedule.every().day.at("08:10").do(runner_true)
         schedule.every().day.at("08:13").do(tagged_actions_sequence)
         schedule.every().day.at("11:11").do(runner_false)
