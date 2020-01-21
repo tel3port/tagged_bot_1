@@ -34,7 +34,6 @@ class MainTaggedBot:
 
     def login(self):
         print("logging me in....")
-        exit(143)
         self.driver.get(gls.login_url)
         self.driver.maximize_window()
         email_xpath = '//*[contains(@name,"username")]'
