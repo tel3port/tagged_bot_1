@@ -14,7 +14,6 @@ import schedule
 import time
 from PIL import Image
 import io
-from datetime import datetime
 
 
 class MainTaggedBot:
@@ -29,8 +28,8 @@ class MainTaggedBot:
         chrome_options.add_argument("--start-maximized")
         prefs = {"profile.managed_default_content_settings.images": 2}
         chrome_options.add_experimental_option("prefs", prefs)
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         # self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         self.login()
 
     def login(self):
@@ -156,6 +155,7 @@ class MainTaggedBot:
     # -------------------- image downloader section -----------------------------------------------------------------------
 
     def follow_and_dm_single_user(self, user_link, s_comp, random_lander):
+        print("follow_and_dm_single_user started")
         time.sleep(7)
         try:
             self.driver.get(user_link)
@@ -186,9 +186,10 @@ class MainTaggedBot:
             print(f"single dm sent to {user_link}")
 
             self.driver.close()
+            time.sleep(5)
 
             self.driver.switch_to.window(current)
-            print("message window closed!")
+            print("follow_and_dm_single_user finished")
 
         except Exception as e:
             print("follow_DM_single_user the problem is: ", e)
@@ -200,18 +201,21 @@ class MainTaggedBot:
             pass
 
     def status_updater_text(self, homepage_link, single_update, single_lander):
+        print("starting text status update")
         try:
             self.driver.get(homepage_link)
 
             status_textbox_xpath = '//*[contains(@placeholder,"you doing today?")]'
             post_btn_xpath = '//*[contains(@ng-click,"postStatus()")]'
 
-            self.driver.execute_script("window.scrollBy(0,400)", "")
+            self.driver.execute_script("window.scrollBy(0,500)", "")
             time.sleep(10)
 
             self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
             time.sleep(5)
             self.driver.find_element_by_xpath(post_btn_xpath).click()
+
+            print("text status update done")
 
         except Exception as e:
             print("the status_updater_text issue is: ", e)
@@ -219,6 +223,8 @@ class MainTaggedBot:
             pass
 
     def status_updater_image(self, homepage_link, single_image):
+        print("image status update started")
+
         try:
             self.driver.get(homepage_link)
 
@@ -229,6 +235,7 @@ class MainTaggedBot:
             self.driver.find_element_by_id('photoUpload').send_keys(f"{os.getcwd()}{'/'}{single_image}")
 
             time.sleep(7)
+            print("image status update done")
 
         except Exception as e:
             print("the status_updater_image issue is: ", e)
@@ -390,15 +397,17 @@ if __name__ == "__main__":
 
     # refreshes images 3 times a week
     def image_refresh_sequence():
+        print("starting image refresh")
         list_of_search_terms = ["cute cat phone wallpaper", "cute puppy phone wallpaper", "cute pet phone wallpaper", "cute kitten phone wallpaper", "cute lion phone wallpaper", "cute elephant phone wallpaper",
                                 " cute dog phone wallpaper", 'fluffy cat phone wallpaper', "cute bird phone wallpaper", "cute calf phone wallpaper"]
         random_search_term = list_of_search_terms[randint(0, len(list_of_search_terms) - 1)]
         time.sleep(5)
         try:
-            tagged_bot.search_and_download(random_search_term, './chromedriver', './dld_images', 75)
+            tagged_bot.search_and_download(random_search_term, './chromedriver', './dld_images', 35)
             time.sleep(10)
             tagged_bot.image_optimiser()
             tagged_bot.image_deleter()
+            print("image refresh done for today")
 
         except Exception as we:
             print('image_refresh_sequence Error occurred ' + str(we))
@@ -425,6 +434,7 @@ if __name__ == "__main__":
 
                 tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
                 time.sleep(randint(35, 65))
+
 
         else:
             print("bot is sleeping for 8 hours")
@@ -463,3 +473,11 @@ if __name__ == "__main__":
     custom_tagged_bot_1_scheduler()
 
 
+    # def run_locally():
+    #     for _ in range(5):
+    #         tagged_actions_sequence()
+    #         time.sleep(12)
+    #         image_refresh_sequence()
+    #         time.sleep(7)
+
+    # run_locally()
