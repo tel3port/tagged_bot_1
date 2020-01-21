@@ -408,6 +408,8 @@ if __name__ == "__main__":
     def tagged_actions_sequence():
         if is_running:
             while 1:
+                print("tagged action sequence running")
+
                 complement_list = tagged_bot.read_complements_from_csv(gls.complements_csv)
                 single_comp = complement_list[randint(0, len(complement_list) - 1)]
                 static_user_url_list = tagged_bot.read_links_from_csv(gls.user_urls_csv)
@@ -434,10 +436,12 @@ if __name__ == "__main__":
     def runner_true():
         global is_running
         is_running = True
+        print("runner set to true")
 
     def runner_false():
         global is_running
         is_running = False
+        print("runner set to false")
 
     def custom_tagged_bot_1_scheduler():
         print("starting custom scheduler")
