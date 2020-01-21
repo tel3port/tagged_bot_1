@@ -440,6 +440,7 @@ if __name__ == "__main__":
         is_running = False
 
     def custom_tagged_bot_1_scheduler():
+        print("starting custom scheduler")
 
         schedule.every().day.at("01:03").do(image_refresh_sequence)
         # schedule.every().wednesday.at("01:21").do(image_refresh_sequence)
