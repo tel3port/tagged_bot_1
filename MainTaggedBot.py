@@ -386,6 +386,12 @@ class MainTaggedBot:
             print(traceback.format_exc())
             pass
 
+    # -------------------- dyno restart section -----------------------------------------------------------------------
+
+    @staticmethod
+    def exit_application():
+        exit(143)
+
     # -------------------- bot's entry point -----------------------------------------------------------------------
 
 
@@ -453,14 +459,20 @@ if __name__ == "__main__":
 
     def custom_tagged_bot_1_scheduler():
         print("starting custom scheduler")
-
-        # schedule.every().wednesday.at("01:21").do(image_refresh_sequence)
-        # schedule.every().friday.at("01:57").do(image_refresh_sequence)
-        # schedule.every().sunday.at("01:57").do(user_scraper_sequence)
         schedule.every().day.at("01:03").do(image_refresh_sequence)
+        schedule.every().day.at("01:03").do(image_refresh_sequence)
+
+        schedule.every().day.at("03:03").do(tagged_bot.exit_application)
+
         schedule.every().day.at("08:10").do(runner_true)
+
+        schedule.every().day.at("08:03").do(tagged_bot.exit_application)
+
         schedule.every().day.at("08:13").do(tagged_actions_sequence)
         schedule.every().day.at("11:11").do(runner_false)
+
+        schedule.every().day.at("11:30").do(tagged_bot.exit_application)
+
 
         while 1:
             schedule.run_pending()
