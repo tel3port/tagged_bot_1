@@ -458,25 +458,30 @@ if __name__ == "__main__":
         print("runner set to false")
 
     def custom_tagged_bot_1_scheduler():
-        print("starting custom scheduler")
-        schedule.every().day.at("01:03").do(image_refresh_sequence)
-        schedule.every().day.at("01:03").do(image_refresh_sequence)
+        try:
+            print("starting custom scheduler")
+            schedule.every().day.at("01:03").do(image_refresh_sequence)
+            schedule.every().day.at("01:03").do(image_refresh_sequence)
 
-        schedule.every().day.at("03:03").do(tagged_bot.exit_application)
+            schedule.every().day.at("03:03").do(tagged_bot.exit_application)
 
-        schedule.every().day.at("08:10").do(runner_true)
+            schedule.every().day.at("08:10").do(runner_true)
 
-        schedule.every().day.at("08:03").do(tagged_bot.exit_application)
+            schedule.every().day.at("08:03").do(tagged_bot.exit_application)
 
-        schedule.every().day.at("08:13").do(tagged_actions_sequence)
-        schedule.every().day.at("11:11").do(runner_false)
+            schedule.every().day.at("08:13").do(tagged_actions_sequence)
+            schedule.every().day.at("11:11").do(runner_false)
 
-        schedule.every().day.at("11:30").do(tagged_bot.exit_application)
+            schedule.every().day.at("11:30").do(tagged_bot.exit_application)
 
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
 
-        while 1:
-            schedule.run_pending()
-            time.sleep(1)
+        except Exception as e:
+            print('custom_tagged_bot_1_scheduler Error occurred ' + str(e))
+            print(traceback.format_exc())
+            pass
 
 
     custom_tagged_bot_1_scheduler()
