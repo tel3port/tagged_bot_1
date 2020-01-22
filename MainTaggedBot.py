@@ -260,10 +260,10 @@ class MainTaggedBot:
         time.sleep(12)
 
         # open tab
-        current = wd.current_window_handle
-        wd.execute_script("window.open();")
-        new_tab = [tab for tab in wd.window_handles if tab != current][0]
-        wd.switch_to.window(new_tab)
+        # current = wd.current_window_handle
+        # wd.execute_script("window.open();")
+        # new_tab = [tab for tab in wd.window_handles if tab != current][0]
+        # wd.switch_to.window(new_tab)
         # You can use (Keys.CONTROL + 't') on other OSs
         # load the page
         time.sleep(12)
@@ -312,9 +312,9 @@ class MainTaggedBot:
             results_start = len(thumbnail_results)
 
             # # close the tab
-            wd.close()
-
-            wd.switch_to.window(current)
+            # wd.close()
+            #
+            # wd.switch_to.window(current)
 
         return image_urls
 
