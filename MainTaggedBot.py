@@ -455,6 +455,7 @@ if __name__ == "__main__":
     def custom_tagged_bot_1_scheduler():
         try:
             print("starting custom scheduler")
+            schedule.every().day.at("12:30").do(tagged_bot.exit_application)
             schedule.every().day.at("01:03").do(image_refresh_sequence)
             schedule.every().day.at("02:03").do(tagged_bot.exit_application)
             schedule.every().day.at("03:13").do(tagged_actions_sequence)
@@ -477,6 +478,7 @@ if __name__ == "__main__":
             schedule.every().day.at("20:40").do(tagged_actions_sequence)
             schedule.every().day.at("21:52").do(tagged_actions_sequence)
             schedule.every().day.at("22:30").do(tagged_bot.exit_application)
+
 
             while True:
                 schedule.run_pending()
