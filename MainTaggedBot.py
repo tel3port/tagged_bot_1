@@ -178,7 +178,7 @@ class MainTaggedBot:
 
             new_tab = [tab for tab in self.driver.window_handles if tab != current][0]
             self.driver.switch_to.window(new_tab)
-            self.driver.find_element_by_xpath(dm_textbox_xpath).send_keys(f'{s_comp}. Free gift>! {random_lander}')
+            self.driver.find_element_by_xpath(dm_textbox_xpath).send_keys(f'{s_comp[0]}. What do you think of this? Is it legit? {random_lander}')
             time.sleep(5)
             self.driver.find_element_by_xpath(send_btn_xpath).click()
 
