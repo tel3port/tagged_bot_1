@@ -463,13 +463,11 @@ if __name__ == "__main__":
             schedule.every().day.at("01:03").do(image_refresh_sequence)
 
             schedule.every().day.at("02:03").do(tagged_bot.exit_application)
+            schedule.every().day.at("07:44").do(tagged_bot.exit_application)
 
             schedule.every().day.at("08:10").do(runner_true)
-
-            schedule.every().day.at("08:03").do(tagged_bot.exit_application)
-
             schedule.every().day.at("08:13").do(tagged_actions_sequence)
-            schedule.every().day.at("11:11").do(runner_false)
+            schedule.every().day.at("23:11").do(runner_false)
 
             schedule.every().day.at("11:30").do(tagged_bot.exit_application)
 
