@@ -461,9 +461,8 @@ if __name__ == "__main__":
         try:
             print("starting custom scheduler")
             schedule.every().day.at("01:03").do(image_refresh_sequence)
-            schedule.every().day.at("01:03").do(image_refresh_sequence)
 
-            schedule.every().day.at("03:03").do(tagged_bot.exit_application)
+            schedule.every().day.at("02:03").do(tagged_bot.exit_application)
 
             schedule.every().day.at("08:10").do(runner_true)
 
