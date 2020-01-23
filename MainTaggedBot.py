@@ -201,27 +201,33 @@ class MainTaggedBot:
 
     def status_updater_text(self, homepage_link, single_update, single_lander):
         print("starting text status update")
+        count = 0
         try:
-            self.driver.get(homepage_link)
+            for i in range(5):
+                self.driver.get(homepage_link)
 
-            status_textbox_xpath = '//*[contains(@placeholder,"you doing today?")]'
-            post_btn_xpath = '//*[contains(@ng-click,"postStatus()")]'
+                status_textbox_xpath = '//*[contains(@placeholder,"you doing today?")]'
+                post_btn_xpath = '//*[contains(@ng-click,"postStatus()")]'
 
-            self.driver.execute_script("window.scrollBy(0,500)", "")
-            time.sleep(10)
+                self.driver.execute_script("window.scrollBy(0,500)", "")
+                time.sleep(10)
 
-            self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
-            time.sleep(5)
-            self.driver.find_element_by_xpath(post_btn_xpath).click()
+                self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]}')
 
-            print("text status update done")
+                if i == 4:
+                    self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
+
+                time.sleep(5)
+                self.driver.find_element_by_xpath(post_btn_xpath).click()
+
+                print("text status update done")
 
         except Exception as e:
             print("the status_updater_text issue is: ", e)
             print(traceback.format_exc())
             pass
 
-    def status_updater_image(self, homepage_link, single_image):
+    def status_updater_txt_link(self, homepage_link, single_image):
         print("image status update started")
 
         try:
