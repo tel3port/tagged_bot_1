@@ -436,8 +436,8 @@ if __name__ == "__main__":
 
             time.sleep(randint(10, 20))
 
-            tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
-            time.sleep(randint(10, 20))
+            # tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
+            # time.sleep(randint(10, 20))
 
     def user_scraper_sequence():
         tagged_bot.scrape_users()  # from web and saves to csv
