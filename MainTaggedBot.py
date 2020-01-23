@@ -405,7 +405,7 @@ if __name__ == "__main__":
 
     tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
 
-    tagged_bot.scrape_users()
+    # tagged_bot.scrape_users()
 
     def image_refresh_sequence():
         print("starting image refresh")
@@ -495,7 +495,7 @@ if __name__ == "__main__":
             pass
 
 
-    # custom_tagged_bot_1_scheduler()
+    custom_tagged_bot_1_scheduler()
 
 
     # def run_locally():
