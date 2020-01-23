@@ -456,7 +456,7 @@ if __name__ == "__main__":
         try:
             print("starting custom scheduler")
             schedule.every().day.at("12:30").do(tagged_actions_sequence)
-            schedule.every().day.at("01:03").do(image_refresh_sequence)
+            # schedule.every().day.at("01:03").do(image_refresh_sequence)
             schedule.every().day.at("02:30").do(tagged_actions_sequence)
             schedule.every().day.at("03:13").do(tagged_actions_sequence)
             schedule.every().day.at("04:33").do(tagged_actions_sequence)
