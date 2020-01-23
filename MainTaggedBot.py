@@ -435,7 +435,11 @@ if __name__ == "__main__":
 
             time.sleep(randint(5, 20))
 
-            tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], gls.single_lander_source())
+            random_lander = ""
+            if i % 5 == 0:
+                random_lander = gls.single_lander_source()
+
+            tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], random_lander)
 
             time.sleep(randint(5, 20))
 
