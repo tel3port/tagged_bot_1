@@ -127,7 +127,7 @@ class MainTaggedBot:
         links_set = set()
 
         try:
-            for i in range(5):
+            for i in range(500):
                 time.sleep(7)
                 self.driver.get(f'{gls.user_url_source}{i}')
 
@@ -201,7 +201,6 @@ class MainTaggedBot:
 
     def status_updater_text(self, homepage_link, single_update, single_lander):
         print("starting text status update")
-        count = 0
         try:
             for i in range(5):
                 self.driver.get(homepage_link)
@@ -227,7 +226,7 @@ class MainTaggedBot:
             print(traceback.format_exc())
             pass
 
-    def status_updater_txt_link(self, homepage_link, single_image):
+    def status_updater_image(self, homepage_link, single_image):
         print("image status update started")
 
         try:
@@ -406,7 +405,8 @@ if __name__ == "__main__":
 
     tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
 
-    # refreshes images 3 times a week
+    tagged_bot.scrape_users()
+
     def image_refresh_sequence():
         print("starting image refresh")
         list_of_search_terms = ["cute cat phone wallpaper", "cute puppy phone wallpaper", "cute pet phone wallpaper", "cute kitten phone wallpaper", "cute lion phone wallpaper", "cute elephant phone wallpaper",
@@ -495,7 +495,7 @@ if __name__ == "__main__":
             pass
 
 
-    custom_tagged_bot_1_scheduler()
+    # custom_tagged_bot_1_scheduler()
 
 
     # def run_locally():
