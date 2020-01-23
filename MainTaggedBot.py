@@ -22,14 +22,14 @@ class MainTaggedBot:
         self.password = password
         chrome_options = webdriver.ChromeOptions()
         chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-dev-sgm-usage")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--start-maximized")
         prefs = {"profile.managed_default_content_settings.images": 2}
         chrome_options.add_experimental_option("prefs", prefs)
-        # self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        # self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         self.login()
 
     def login(self):
@@ -178,13 +178,13 @@ class MainTaggedBot:
 
             new_tab = [tab for tab in self.driver.window_handles if tab != current][0]
             self.driver.switch_to.window(new_tab)
-            self.driver.find_element_by_xpath(dm_textbox_xpath).send_keys(f'{s_comp[0]}. What do you think of this? Is it legit? {random_lander}')
+            self.driver.find_element_by_xpath(dm_textbox_xpath).send_keys(f'{s_comp[0]}.{random_lander}')
             time.sleep(5)
             self.driver.find_element_by_xpath(send_btn_xpath).click()
 
             print(f"single dm sent to {user_link}")
 
-            self.driver.close()
+            # self.driver.close()
             time.sleep(5)
 
             self.driver.switch_to.window(current)
@@ -195,7 +195,6 @@ class MainTaggedBot:
             print(traceback.format_exc())
             pass
 
-        # close the tab
         finally:
             pass
 
@@ -431,15 +430,19 @@ if __name__ == "__main__":
             static_user_url_list = tagged_bot.read_links_from_csv(gls.user_urls_csv)
             single_user_url = static_user_url_list[randint(0, len(static_user_url_list) - 1)]
             # image_list = glob.glob('media/*')
-            tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=gls.single_lander_source())
+
+            random_lander1 = ""
+            if i % 5 == 0:
+                random_lander1 = gls.single_lander_source()
+            tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=random_lander1)
 
             time.sleep(randint(5, 20))
 
-            random_lander = ""
+            random_lander2 = ""
             if i % 5 == 0:
-                random_lander = gls.single_lander_source()
+                random_lander2 = gls.single_lander_source()
 
-            tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], random_lander)
+            tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], random_lander2)
 
             time.sleep(randint(5, 20))
 
@@ -486,13 +489,11 @@ if __name__ == "__main__":
             print(traceback.format_exc())
             pass
 
-    custom_tagged_bot_1_scheduler()
+    # custom_tagged_bot_1_scheduler()
 
-    # def run_locally():
-    #     for _ in range(5):
-    #         tagged_actions_sequence()
-    #         time.sleep(12)
-    #         image_refresh_sequence()
-    #         time.sleep(7)
+    def run_locally():
+        for _ in range(5):
+            tagged_actions_sequence()
 
-    # run_locally()
+
+    run_locally()
