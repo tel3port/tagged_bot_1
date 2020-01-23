@@ -211,7 +211,7 @@ class MainTaggedBot:
                 self.driver.execute_script("window.scrollBy(0,500)", "")
                 time.sleep(10)
 
-                self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]}')
+                self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
 
                 time.sleep(5)
                 self.driver.find_element_by_xpath(post_btn_xpath).click()
