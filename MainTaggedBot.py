@@ -430,11 +430,11 @@ if __name__ == "__main__":
             # image_list = glob.glob('media/*')
             tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=gls.single_lander_source())
 
-            time.sleep(randint(10, 20))
+            time.sleep(randint(5, 20))
 
             tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], gls.single_lander_source())
 
-            time.sleep(randint(10, 20))
+            time.sleep(randint(5, 20))
 
             # tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
             # time.sleep(randint(10, 20))
