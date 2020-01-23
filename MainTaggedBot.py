@@ -202,21 +202,21 @@ class MainTaggedBot:
     def status_updater_text(self, homepage_link, single_update, single_lander):
         print("starting text status update")
         try:
-            for i in range(5):
-                self.driver.get(homepage_link)
 
-                status_textbox_xpath = '//*[contains(@placeholder,"you doing today?")]'
-                post_btn_xpath = '//*[contains(@ng-click,"postStatus()")]'
+            self.driver.get(homepage_link)
 
-                self.driver.execute_script("window.scrollBy(0,500)", "")
-                time.sleep(10)
+            status_textbox_xpath = '//*[contains(@placeholder,"you doing today?")]'
+            post_btn_xpath = '//*[contains(@ng-click,"postStatus()")]'
 
-                self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
+            self.driver.execute_script("window.scrollBy(0,500)", "")
+            time.sleep(10)
 
-                time.sleep(5)
-                self.driver.find_element_by_xpath(post_btn_xpath).click()
+            self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
 
-                print("text status update done")
+            time.sleep(5)
+            self.driver.find_element_by_xpath(post_btn_xpath).click()
+
+            print("text status update done")
 
         except Exception as e:
             print("the status_updater_text issue is: ", e)
@@ -449,15 +449,6 @@ if __name__ == "__main__":
     def user_scraper_sequence():
         tagged_bot.scrape_users()  # from web and saves to csv
 
-    # def runner_true():
-    #     global is_running
-    #     is_running = True
-    #     print("runner set to true")
-    #
-    # def runner_false():
-    #     global is_running
-    #     is_running = False
-    #     print("runner set to false")
 
     def custom_tagged_bot_1_scheduler():
         try:
@@ -496,7 +487,6 @@ if __name__ == "__main__":
             pass
 
     custom_tagged_bot_1_scheduler()
-
 
     # def run_locally():
     #     for _ in range(5):
