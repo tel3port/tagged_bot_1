@@ -489,11 +489,11 @@ if __name__ == "__main__":
             print(traceback.format_exc())
             pass
 
-    # custom_tagged_bot_1_scheduler()
+    custom_tagged_bot_1_scheduler()
 
-    def run_locally():
-        for _ in range(5):
-            tagged_actions_sequence()
-
-
-    run_locally()
+    # def run_locally():
+    #     for _ in range(5):
+    #         tagged_actions_sequence()
+    #
+    #
+    # run_locally()
