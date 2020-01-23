@@ -22,14 +22,14 @@ class MainTaggedBot:
         self.password = password
         chrome_options = webdriver.ChromeOptions()
         chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-dev-sgm-usage")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--start-maximized")
         prefs = {"profile.managed_default_content_settings.images": 2}
         chrome_options.add_experimental_option("prefs", prefs)
-        # self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+        # self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         self.login()
 
     def login(self):
@@ -212,9 +212,6 @@ class MainTaggedBot:
                 time.sleep(10)
 
                 self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]}')
-
-                if i == 4:
-                    self.driver.find_element_by_xpath(status_textbox_xpath).send_keys(f'{single_update[0]} {single_lander}')
 
                 time.sleep(5)
                 self.driver.find_element_by_xpath(post_btn_xpath).click()
@@ -434,7 +431,7 @@ if __name__ == "__main__":
             static_user_url_list = tagged_bot.read_links_from_csv(gls.user_urls_csv)
             single_user_url = static_user_url_list[randint(0, len(static_user_url_list) - 1)]
             # image_list = glob.glob('media/*')
-            tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=gls.single_lander_source())
+            # tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=gls.single_lander_source())
 
             time.sleep(randint(5, 20))
 
@@ -495,7 +492,8 @@ if __name__ == "__main__":
             pass
 
 
-    custom_tagged_bot_1_scheduler()
+    tagged_actions_sequence()
+    # custom_tagged_bot_1_scheduler()
 
 
     # def run_locally():
