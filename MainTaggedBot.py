@@ -402,8 +402,8 @@ if __name__ == "__main__":
         print(f"This is testing loop NUM: {count}")
         time.sleep(12)
         count += 1
-        os.system("heroku dyno:restart --app tagged-bot-1-usa")
-        os.system("heroku run 'heroku auth:token'")
+        # os.system("heroku dyno:restart --app tagged-bot-1-usa")
+        os.system("python restart.py")
 
 
     # tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
