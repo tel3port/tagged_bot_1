@@ -405,8 +405,10 @@ if __name__ == "__main__":
         count += 1
         # os.system("heroku dyno:restart --app tagged-bot-1-usa")
         heroku_conn = heroku3.from_key('b477d2e0-d1ba-48b1-a2df-88d87db973e7')
-        app = heroku_conn.apps()['tagged-bot-2-usa']
+        app = heroku_conn.apps()['tagged-bot-1-usa']
         app.restart()
+        time.sleep(12)
+
 
     # tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
     #
