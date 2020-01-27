@@ -14,6 +14,7 @@ import schedule
 import time
 from PIL import Image
 import io
+import heroku3
 
 
 class MainTaggedBot:
@@ -403,8 +404,9 @@ if __name__ == "__main__":
         time.sleep(12)
         count += 1
         # os.system("heroku dyno:restart --app tagged-bot-1-usa")
-        os.system("python restart.py")
-
+        heroku_conn = heroku3.from_key('b477d2e0-d1ba-48b1-a2df-88d87db973e7')
+        app = heroku_conn.apps()['tagged-bot-2-usa']
+        app.restart()
 
     # tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
     #
