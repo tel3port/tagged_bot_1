@@ -399,11 +399,12 @@ class MainTaggedBot:
 if __name__ == "__main__":
     count = 0
     while 1:
-        print(f"this is loop number {count}")
+        print(f"This is testing loop NUM: {count}")
         time.sleep(12)
         count += 1
         os.system("heroku dyno:restart --app tagged-bot-1-usa")
         os.system("python restart.py")
+
 
     # tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
     #
