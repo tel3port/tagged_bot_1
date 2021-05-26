@@ -406,96 +406,96 @@ if __name__ == "__main__":
         os.system("python restart.py")
 
 
-    # tagged_bot = MainTaggedBot("2ksaber@gmail.com", "8GgqbBcGp@Nx4#G")
-    #
-    # # tagged_bot.scrape_users()
-    #
-    # def image_refresh_sequence():
-    #     print("starting image refresh")
-    #     list_of_search_terms = ["cute cat phone wallpaper", "cute puppy phone wallpaper", "cute pet phone wallpaper", "cute kitten phone wallpaper", "cute lion phone wallpaper", "cute elephant phone wallpaper",
-    #                             " cute dog phone wallpaper", 'fluffy sweater phone wallpaper', "cute bird phone wallpaper", "cute calf phone wallpaper"]
-    #     random_search_term = list_of_search_terms[randint(0, len(list_of_search_terms) - 1)]
-    #     time.sleep(5)
-    #     try:
-    #         tagged_bot.search_and_download(random_search_term, './chromedriver', './dld_images', 35)
-    #         time.sleep(10)
-    #         tagged_bot.image_optimiser()
-    #         tagged_bot.image_deleter()
-    #         print("image refresh done for today")
-    #
-    #     except Exception as we:
-    #         print('image_refresh_sequence Error occurred ' + str(we))
-    #         print(traceback.format_exc())
-    #         pass
-    #
-    # def tagged_actions_sequence():
-    #     for i in range(50):
-    #         print(f"tagged action sequence running loop num: {i}")
-    #
-    #         complement_list = tagged_bot.read_complements_from_csv(gls.complements_csv)
-    #         single_comp = complement_list[randint(0, len(complement_list) - 1)]
-    #         static_user_url_list = tagged_bot.read_links_from_csv(gls.user_urls_csv)
-    #         single_user_url = static_user_url_list[randint(0, len(static_user_url_list) - 1)]
-    #         # image_list = glob.glob('media/*')
-    #
-    #         random_lander1 = ""
-    #         if i % 5 == 0:
-    #             random_lander1 = gls.single_lander_source()
-    #         tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=random_lander1)
-    #
-    #         time.sleep(randint(5, 20))
-    #
-    #         random_lander2 = ""
-    #         if i % 5 == 0:
-    #             random_lander2 = gls.single_lander_source()
-    #
-    #         tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], random_lander2)
-    #
-    #         time.sleep(randint(5, 20))
-    #
-    #         # tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
-    #         # time.sleep(randint(10, 20))
-    #
-    # def user_scraper_sequence():
-    #     tagged_bot.scrape_users()  # from web and saves to csv
-    #
-    # def custom_tagged_bot_1_scheduler():
-    #     try:
-    #         print("starting custom scheduler")
-    #         schedule.every().day.at("12:30").do(tagged_actions_sequence)
-    #         # schedule.every().day.at("01:03").do(image_refresh_sequence)
-    #         schedule.every().day.at("02:30").do(tagged_actions_sequence)
-    #         schedule.every().day.at("03:13").do(tagged_actions_sequence)
-    #         schedule.every().day.at("04:33").do(tagged_actions_sequence)
-    #         schedule.every().day.at("05:25").do(tagged_actions_sequence)
-    #         schedule.every().day.at("06:30").do(tagged_actions_sequence)
-    #         schedule.every().day.at("07:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("08:33").do(tagged_actions_sequence)
-    #         schedule.every().day.at("09:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("10:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("11:30").do(tagged_actions_sequence)
-    #         schedule.every().day.at("12:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("13:33").do(tagged_actions_sequence)
-    #         schedule.every().day.at("14:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("15:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("16:30").do(tagged_actions_sequence)
-    #         schedule.every().day.at("17:35").do(tagged_actions_sequence)
-    #         schedule.every().day.at("18:33").do(tagged_actions_sequence)
-    #         schedule.every().day.at("19:34").do(tagged_actions_sequence)
-    #         schedule.every().day.at("20:40").do(tagged_actions_sequence)
-    #         schedule.every().day.at("21:52").do(tagged_actions_sequence)
-    #         schedule.every().day.at("22:30").do(tagged_actions_sequence)
-    #
-    #         while True:
-    #             schedule.run_pending()
-    #             time.sleep(1)
-    #
-    #     except Exception as e:
-    #         print('custom_tagged_bot_1_scheduler Error occurred ' + str(e))
-    #         print(traceback.format_exc())
-    #         pass
-    #
-    # custom_tagged_bot_1_scheduler()
+    tagged_bot = MainTaggedBot("DFGSDGS@gmail.com", "DGSDGF@Nx4#G")
+    
+    # tagged_bot.scrape_users()
+    
+    def image_refresh_sequence():
+        print("starting image refresh")
+        list_of_search_terms = ["cute cat phone wallpaper", "cute puppy phone wallpaper", "cute pet phone wallpaper", "cute kitten phone wallpaper", "cute lion phone wallpaper", "cute elephant phone wallpaper",
+                                " cute dog phone wallpaper", 'fluffy sweater phone wallpaper', "cute bird phone wallpaper", "cute calf phone wallpaper"]
+        random_search_term = list_of_search_terms[randint(0, len(list_of_search_terms) - 1)]
+        time.sleep(5)
+        try:
+            tagged_bot.search_and_download(random_search_term, './chromedriver', './dld_images', 35)
+            time.sleep(10)
+            tagged_bot.image_optimiser()
+            tagged_bot.image_deleter()
+            print("image refresh done for today")
+    
+        except Exception as we:
+            print('image_refresh_sequence Error occurred ' + str(we))
+            print(traceback.format_exc())
+            pass
+    
+    def tagged_actions_sequence():
+        for i in range(50):
+            print(f"tagged action sequence running loop num: {i}")
+    
+            complement_list = tagged_bot.read_complements_from_csv(gls.complements_csv)
+            single_comp = complement_list[randint(0, len(complement_list) - 1)]
+            static_user_url_list = tagged_bot.read_links_from_csv(gls.user_urls_csv)
+            single_user_url = static_user_url_list[randint(0, len(static_user_url_list) - 1)]
+            # image_list = glob.glob('media/*')
+    
+            random_lander1 = ""
+            if i % 5 == 0:
+                random_lander1 = gls.single_lander_source()
+            tagged_bot.follow_and_dm_single_user(user_link=single_user_url[0], s_comp=single_comp, random_lander=random_lander1)
+    
+            time.sleep(randint(5, 20))
+    
+            random_lander2 = ""
+            if i % 5 == 0:
+                random_lander2 = gls.single_lander_source()
+    
+            tagged_bot.status_updater_text(gls.status_home_page, complement_list[randint(0, len(complement_list) - 1)], random_lander2)
+    
+            time.sleep(randint(5, 20))
+    
+            # tagged_bot.status_updater_image(gls.status_home_page, image_list[randint(0, len(image_list) - 1)])
+            # time.sleep(randint(10, 20))
+    
+    def user_scraper_sequence():
+        tagged_bot.scrape_users()  # from web and saves to csv
+    
+    def custom_tagged_bot_1_scheduler():
+        try:
+            print("starting custom scheduler")
+            schedule.every().day.at("12:30").do(tagged_actions_sequence)
+            # schedule.every().day.at("01:03").do(image_refresh_sequence)
+            schedule.every().day.at("02:30").do(tagged_actions_sequence)
+            schedule.every().day.at("03:13").do(tagged_actions_sequence)
+            schedule.every().day.at("04:33").do(tagged_actions_sequence)
+            schedule.every().day.at("05:25").do(tagged_actions_sequence)
+            schedule.every().day.at("06:30").do(tagged_actions_sequence)
+            schedule.every().day.at("07:35").do(tagged_actions_sequence)
+            schedule.every().day.at("08:33").do(tagged_actions_sequence)
+            schedule.every().day.at("09:35").do(tagged_actions_sequence)
+            schedule.every().day.at("10:35").do(tagged_actions_sequence)
+            schedule.every().day.at("11:30").do(tagged_actions_sequence)
+            schedule.every().day.at("12:35").do(tagged_actions_sequence)
+            schedule.every().day.at("13:33").do(tagged_actions_sequence)
+            schedule.every().day.at("14:35").do(tagged_actions_sequence)
+            schedule.every().day.at("15:35").do(tagged_actions_sequence)
+            schedule.every().day.at("16:30").do(tagged_actions_sequence)
+            schedule.every().day.at("17:35").do(tagged_actions_sequence)
+            schedule.every().day.at("18:33").do(tagged_actions_sequence)
+            schedule.every().day.at("19:34").do(tagged_actions_sequence)
+            schedule.every().day.at("20:40").do(tagged_actions_sequence)
+            schedule.every().day.at("21:52").do(tagged_actions_sequence)
+            schedule.every().day.at("22:30").do(tagged_actions_sequence)
+    
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
+    
+        except Exception as e:
+            print('custom_tagged_bot_1_scheduler Error occurred ' + str(e))
+            print(traceback.format_exc())
+            pass
+    
+    custom_tagged_bot_1_scheduler()
 
     # def run_locally():
     #     for _ in range(5):
